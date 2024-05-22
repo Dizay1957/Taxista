@@ -33,7 +33,7 @@ const useLogout = () => {
                 isRider : false,
             })
             setIsLoggedIn(false)
-            setSuccessMsgAPI("Thank you for spending time with CarCar")
+            setSuccessMsgAPI("Thank you for spending time with Taxista")
             navigate("/")
         }catch(err){
             if(err?.response?.status === 500){

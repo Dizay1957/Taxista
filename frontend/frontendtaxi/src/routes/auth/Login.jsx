@@ -6,15 +6,16 @@ import useGetContext from "../../../context/useGetContext";
 const Login = () => {
     const { authenticateUser } = useAuthenticate()
     const { setErrorAPI } = useGetContext()
-    const [ emailAddress, setEmailAddress ] = useState("")
-    const [ userPassword, setUserPassword ] = useState("")
-    const handleFormSubmit = (e)=>{
+    const [emailAddress, setEmailAddress] = useState("")
+    const [userPassword, setUserPassword] = useState("")
+    
+    const handleFormSubmit = (e) => {
         e.preventDefault()
-        if (emailAddress && userPassword){
-            authenticateUser(null, null , emailAddress, userPassword, null )
+        if (emailAddress && userPassword) {
+            authenticateUser(null, null, emailAddress, userPassword, null)
             setEmailAddress("");
             setUserPassword("");
-        }else{
+        } else {
             setErrorAPI("All fields are required")
         }
     }
@@ -24,10 +25,10 @@ const Login = () => {
         <div className="flex md:py-28 flex-col px-6 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <div className="hidden sm:flex items-center gap-2 justify-center">
-                    <div className="w-[20px] h-[20px] bg-mid-night-blue rounded-full"></div> 
-                    <h1 className="text-2xl font-bold 
-                    text-mid-night-blue ">
-                        CARCAR</h1>
+                    <div className="w-[20px] h-[20px] bg-mid-night-blue rounded-full"></div>
+                    <h1 className="text-2xl font-bold text-mid-night-blue">
+                        Taxista
+                    </h1>
                 </div>
                 <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                     Sign in to your account
@@ -44,7 +45,7 @@ const Login = () => {
                         </label>
                         <div className="mt-2">
                             <input
-                                onChange={(e)=> setEmailAddress(e.target.value)}
+                                onChange={(e) => setEmailAddress(e.target.value)}
                                 id="email"
                                 name="email"
                                 type="email"
@@ -67,7 +68,7 @@ const Login = () => {
                             <div className="text-sm">
                                 <Link
                                     to="#"
-                                    className="font-semibold text-indigo-600 hover:text-indigo-500"
+                                    className="font-semibold text-cyan-600 hover:text-cyan-500"
                                 >
                                     Forgot password?
                                 </Link>
@@ -75,7 +76,7 @@ const Login = () => {
                         </div>
                         <div className="mt-2">
                             <input
-                                onChange={(e)=> setUserPassword(e.target.value)}
+                                onChange={(e) => setUserPassword(e.target.value)}
                                 id="password"
                                 name="password"
                                 type="password"
@@ -90,17 +91,17 @@ const Login = () => {
                     <div>
                         <button
                             onClick={handleFormSubmit}
-                            className="flex w-full justify-center rounded-sm bg-deep-purple px-3 py-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            className="flex w-full justify-center rounded-sm bg-cyan-500 px-3 py-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-cyan-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         >
                             Sign in
                         </button>
                     </div>
                 </form>
                 <p className="mt-10 text-center text-sm text-gray-500">
-                    Not a member? {" "}
+                    Not a member?{" "}
                     <Link
                         to="/sign-up"
-                        className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+                        className="font-semibold leading-6 text-cyan-600 hover:text-cyan-500"
                     >
                         Create an Account now
                     </Link>
@@ -110,4 +111,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Login;

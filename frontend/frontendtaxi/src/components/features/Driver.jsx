@@ -11,20 +11,20 @@ const Driver = () => {
             <div className="flex-1 md:py-32 px-2">
                 <div>
                     <h3 className="font-semibold text-center md:text-start text-3xl md:text-2xl mb-8 mt-4">Join Our Driver Community</h3>
-                    <p className="text-sm md:text-xl text-slate-500">
+                    <p className="text-sm md:text-xl text-black">
                     Become a part of our driving team and enjoy the benefits of flexible schedules, competitive earnings, and a supportive community. 
                     <br />
                     Join us in delivering safe and reliable 
                     transportation services to our passengers while  driving your career forward.
                     </p>
                     <ul className="flex justify-around items-center w-full mt-12">
-                    <li><span className="font-bold text-2xl sm:text-4xl text-teal">200</span>
+                    <li><span className="font-bold text-2xl sm:text-4xl text-cyan-500">200</span>
                         <p className="text-slate-500 text-sm sm:text-base">Requests a day</p>
                     </li>
-                    <li><span className="font-bold text-2xl sm:text-4xl text-teal">Up to 2x</span>
+                    <li><span className="font-bold text-2xl sm:text-4xl text-cyan-500">Up to 2x</span>
                         <p className="text-slate-500 text-center text-sm sm:text-base">Surge value</p>
                     </li>
-                    <li><span className="font-bold text-2xl sm:text-4xl text-teal">Up to $500</span>
+                    <li><span className="font-bold text-2xl sm:text-4xl text-cyan-500">Up to $500</span>
                         <p className="text-slate-500 text-sm sm:text-base text-center">Weekly bonus</p>
                     </li>
                 </ul>
@@ -35,4 +35,4 @@ const Driver = () => {
     )
 }
 
-export default Driver
+export default Driver;

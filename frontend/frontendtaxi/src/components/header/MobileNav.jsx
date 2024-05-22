@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
 
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
-
-const MobileNav = ({ toggleNav, setToggleNav, linkObj}) => {
+const MobileNav = ({ toggleNav, setToggleNav, linkObj }) => {
     return (
         <>
             <button className="md:hidden" onClick={() => setToggleNav(!toggleNav)}>
@@ -12,19 +11,18 @@ const MobileNav = ({ toggleNav, setToggleNav, linkObj}) => {
                 </svg>
             </button>
             <ul className={`${toggleNav ? "md:hidden flex flex-row flex-wrap gap-4 px-2 py-3 items-center justify-evenly bg-white w-full absolute top-[3rem] right-0" : "hidden"}`}>
-                    <li><Link to={linkObj.homeLink} className="cursor-pointer">Learn more</Link></li>
-                    <li><Link to={linkObj.signupLink} className="text-steel-blue cursor-pointer border-2 border-steel-blue 
-                py-3 px-4 text-sm lg:text-md
-                hover:text-white hover:bg-steel-blue">Earn money as Driver</Link>
-                    </li>
-                    <li><Link to={linkObj.loginLink} className="text-white cursor-pointer 
-                        bg-deep-purple text-sm lg:text-base py-3 px-4">
+                <li><Link to={linkObj.homeLink} className="cursor-pointer text-cyan-600 hover:text-cyan-900">Learn more</Link></li>
+                <li><Link to={linkObj.signupLink} className="text-cyan-600 cursor-pointer border-2 border-cyan-600 
+                py-3 px-4 text-sm lg:text-md hover:text-white hover:bg-cyan-600">Earn money as a Driver</Link>
+                </li>
+                <li><Link to={linkObj.loginLink} className="text-white cursor-pointer 
+                        bg-cyan-600 text-sm lg:text-base py-3 px-4 hover:bg-cyan-700">
                         Login
                         </Link>
-                        </li>
+                </li>
             </ul>
         </>
-    )
-}
+    );
+};
 
-export default MobileNav
+export default MobileNav;

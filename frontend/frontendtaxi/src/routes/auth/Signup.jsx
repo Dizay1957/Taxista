@@ -36,10 +36,10 @@ const Signup = () => {
                     <div className="w-[20px] h-[20px] bg-mid-night-blue rounded-full"></div>
                     <h1 className="text-2xl font-bold 
                     text-mid-night-blue ">
-                        CARCAR</h1>
+                        Taxista</h1>
                 </div>
                 <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-                    Create your account with CarCar
+                    Create your account with Taxista
                 </h2>
             </div>
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -115,7 +115,7 @@ const Signup = () => {
                             <div className="text-sm">
                                 <Link
                                     to="#"
-                                    className="font-semibold text-indigo-600 hover:text-indigo-500"
+                                    className="font-semibold text-cyan-600 hover:text-cyan-500"
                                 >
                                     Forgot password?
                                 </Link>
@@ -175,22 +175,24 @@ const Signup = () => {
                     </div>
 
                     <div>
-                        <button
-                            onClick={handleFormSubmit}
-                            className="flex w-full justify-center rounded-sm bg-deep-purple px-3 py-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                        >
-                            Sign in
-                        </button>
+                    <button
+                        onClick={handleFormSubmit}
+                        className="flex w-full justify-center rounded-sm bg-cyan-500 px-3 py-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+>
+                        Sign in
+                    </button>
+
                     </div>
                 </form>
                 <p className="mt-10 text-center text-sm text-gray-500">
                     Already have an account? {" "}
                     <Link
                         to="/login"
-                        className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
-                    >
+                        className="font-semibold leading-6 text-cyan-500 hover:text-cyan-400"
+>
                         Sign in
                     </Link>
+
                 </p>
             </div>
         </div>

@@ -10,7 +10,7 @@ const Footer = () => {
                 >
                     <h1 className="text-2xl font-bold text-mid-night-blue flex items-center gap-2">
                     <div className="w-[20px] h-[20px] inline-block bg-mid-night-blue rounded-full"></div> 
-                    CARCAR</h1>
+                    Taxista</h1>
                 </a>
                 <p className="my-6 text-gray-500 ">
                     Transportation provider, make your life easier with few clicks
@@ -53,7 +53,7 @@ const Footer = () => {
                     </li>
                 </ul>
                 <span className="text-sm text-gray-500 sm:text-center flex justify-center items-center">
-                CarCar
+                Taxista
                     . All Rights Reserved.
                 </span>
             </div>
