@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-
 class User(AbstractUser):
     GENDER_OPTIONS = (
         ("Male", "Male"),
@@ -12,6 +11,8 @@ class User(AbstractUser):
     gender = models.CharField(max_length=299, choices=GENDER_OPTIONS)
     is_driver = models.BooleanField(default=False)
     is_rider = models.BooleanField(default=False)
+    driver_profile = models.OneToOneField('drivers.DriverProfile', on_delete=models.CASCADE, null=True, blank=True, related_name='user_driver_profile')
+    rider_profile = models.OneToOneField('riders.RiderProfile', on_delete=models.CASCADE, null=True, blank=True, related_name='user_rider_profile')
     edited_at = models.DateTimeField(auto_now=True)
 
     USERNAME_FIELD = "email" 
@@ -24,4 +25,3 @@ class User(AbstractUser):
         elif self.is_rider:
             user_type = "rider"
         return f"{user_type} object"
-        

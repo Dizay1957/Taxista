@@ -13,7 +13,7 @@ DRIVER_STATUS = (
 ACCOUNT_DEFAULT_STATUS = "Pending"
 
 class DriverProfile(models.Model):
-    user = models.OneToOneField(User, related_name="driver_profile", on_delete=models.CASCADE)
+    user = models.OneToOneField(User, related_name="driver_profile_info", on_delete=models.CASCADE)
     profile_picture = models.ImageField(upload_to="driver/profile/")
     license_front = models.ImageField(upload_to="driver/document/license/")
     license_back = models.ImageField(upload_to="driver/document/license/")
@@ -52,7 +52,7 @@ class DriverCars(models.Model):
     edited_at = models.DateTimeField(auto_now=True)
 
 
-@receiver(signal=post_save, sender=User)
-def createUserProfile(instance, created, **kwargs):
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
     if created and instance.is_driver:
         DriverProfile.objects.create(user=instance)

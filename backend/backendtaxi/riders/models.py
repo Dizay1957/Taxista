@@ -14,7 +14,7 @@ PROFILE_STATUS = (
 ACCOUNT_DEFAULT_STATUS = "Active"
 
 class RiderProfile(models.Model):
-    user = models.OneToOneField(User, related_name="rider_profile" ,on_delete=models.CASCADE)
+    user = models.OneToOneField(User, related_name="rider_profile_info" ,on_delete=models.CASCADE)
     profile_picture = models.ImageField(upload_to="rider/profile/")
     account_status = models.CharField(max_length=299, choices=PROFILE_STATUS, default=ACCOUNT_DEFAULT_STATUS)
     created_on = models.DateTimeField(auto_now_add=True)
