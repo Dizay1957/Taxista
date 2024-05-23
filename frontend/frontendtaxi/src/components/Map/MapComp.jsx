@@ -30,9 +30,9 @@ const MapComp = ({ rideObj }) => {
         <Map
             mapboxAccessToken={import.meta.env.VITE_MAPBOX_API_KEY}
             initialViewState={{
-                longitude: rideCoordinates.pickupLong || -73.977785,
-                latitude: rideCoordinates.pickupLat || 40.63258,
-                zoom: 8.5
+                longitude: rideCoordinates.pickupLong || -7.9811,
+                latitude: rideCoordinates.pickupLat || 31.6293,
+                zoom: 15
             }}
             style={{ width: "100%", minHeight: "40rem" }}
             mapStyle="mapbox://styles/mapbox/streets-v12"
