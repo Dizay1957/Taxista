@@ -2,20 +2,22 @@ from rest_framework import generics, status, permissions
 from rest_framework.response import Response
 from .api.serializers import RideBookingSerializer
 from .models import RideBooking
+import logging
 
+logger = logging.getLogger(__name__)
 
 class BookRideUser(generics.CreateAPIView):
     serializer_class = RideBookingSerializer
-    permission_classes = [ permissions.IsAuthenticated ]
+    permission_classes = [permissions.IsAuthenticated]
 
     def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data, context={"request":request})
+        logger.debug("Received booking request data: %s", request.data)
+        serializer = self.get_serializer(data=request.data, context={"request": request})
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
 
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-
+    
 
 class RetrieveRideAPI(generics.RetrieveUpdateAPIView):
     serializer_class = RideBookingSerializer

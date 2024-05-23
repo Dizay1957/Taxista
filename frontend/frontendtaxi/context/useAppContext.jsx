@@ -1,5 +1,5 @@
 import { jwtDecode } from "jwt-decode";
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from 'react';
 
 
 const AppContext = createContext({})
@@ -18,8 +18,12 @@ export const ContextAppProvider = ({ children }) => {
     
     let decodedToken = {};
     if (aToken) {
-        decodedToken = jwtDecode(aToken)
-    }
+        try {
+          decodedToken = jwtDecode(aToken);
+        } catch (error) {
+          console.error('Token decode error:', error);
+        }
+      }
     const [userToken, setUserToken] = useState({
         access: authToken?.accessToken || "",
         refresh: authToken?.refreshToken || "",
@@ -31,6 +35,10 @@ export const ContextAppProvider = ({ children }) => {
         driver_profile_id: decodedToken?.driver_profile_id || null,
         riderProfileID: decodedToken?.rider_profile_id || null,
     })
+
+    useEffect(() => {
+        console.log('Decoded Token:', decodedToken);
+      }, []);
 
     return (
         <AppContext.Provider value={{

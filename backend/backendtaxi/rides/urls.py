@@ -1,11 +1,8 @@
 from django.urls import path
-from .views import (
-    BookRideUser, ListBookedRidesAPI, RetrieveRideAPI
-)
-
+from .views import BookRideUser, RetrieveRideAPI, ListBookedRidesAPI
 
 urlpatterns = [
-    path("book/", BookRideUser.as_view(), name="book-ride-user"),
-    path("list-booking/", ListBookedRidesAPI.as_view(), name="list-booking"),
-    path("retrieve-booking/<int:pk>/", RetrieveRideAPI.as_view(), name="update-booking"),
+    path('book/', BookRideUser.as_view(), name='book_ride'),
+    path('retrieve/<int:pk>/', RetrieveRideAPI.as_view(), name='retrieve_ride'),
+    path('list-booking/', ListBookedRidesAPI.as_view(), name='list_booked_rides'),
 ]

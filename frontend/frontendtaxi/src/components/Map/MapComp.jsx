@@ -37,7 +37,8 @@ const MapComp = ({ rideObj }) => {
             style={{ width: "100%", minHeight: "40rem" }}
             mapStyle="mapbox://styles/mapbox/streets-v12"
         >
-            {rideObj?.ride_status !== "In Progress" &&
+            {
+                rideObj?.ride_status !== "In Progress" &&
                 <Marker longitude={rideCoordinates.pickupLong} latitude={rideCoordinates.pickupLat} anchor="bottom">
                     <div className="w-[25px] h-[25px] rounded-full bg-blue-900" />
                 </Marker>

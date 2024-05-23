@@ -1,8 +1,28 @@
-from .api.serializers import RiderProfileSerializer, SavedAddressesSerializer
+import logging
 from rest_framework import generics, status, permissions
 from rest_framework.response import Response
+from .api.serializers import RiderProfileSerializer, SavedAddressesSerializer
 from .models import RiderProfile, SavedAddresses
 from .api_perm.permissions import IsObjectOwnerReadOnly
+
+logger = logging.getLogger(__name__)
+
+class RetrieveRiderProfileAPI(generics.RetrieveUpdateAPIView):
+    serializer_class = RiderProfileSerializer
+    queryset = RiderProfile.objects.all()
+    permission_classes = [permissions.IsAuthenticated, IsObjectOwnerReadOnly]
+
+    def get(self, request, *args, **kwargs):
+        logger.info(f"Fetching profile for rider with ID: {kwargs.get('pk')}")
+        return super().get(request, *args, **kwargs)
+
+    def update(self, request, *args, **kwargs):
+        partial = kwargs.pop("partial", True)
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+        return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
 
 
 
